@@ -2,25 +2,28 @@ import requests
 from exception import RequestFailException
 
 
-def get_time_worldtime():
-    response = requests.get("http://worldtimeapi.org/api/timezone/Asia/Tehran")
+def get_time_worldtime() -> list:
 
-    if response.status_code == 200:
+    try:
+        response = requests.get(
+            "http://worldtimeapi.org/api/timezone/Asia/Tehran", timeout=1
+        )
+
         print("OK")
-        return response.json()
-    else:
-        print(response.status_code)
-        print(response.reason)
-        raise RequestFailException
+        return response.json(), True
+    except requests.exceptions.RequestException or requests.exceptions.Timeout as e:
+        # print(response.status_code)
+        print(e)
+        return response.status_code, False
 
 
-def get_time_keybit():
-    response = requests.get("https://api.keybit.ir/time")
+def get_time_keybit() -> list:
+    try:
+        response = requests.get("https://api.keybit.ir/time", timeout=1)
 
-    if response.status_code == 200:
         print("OK")
-        return response.json()
-    else:
-        print(response.status_code)
-        print(response.reason)
-        raise RequestFailException
+        return response.json(), True
+    except requests.exceptions.RequestException or requests.exceptions.Timeout as e:
+        # print(response.status_code)
+        print(e)
+        return response.status_code, False
