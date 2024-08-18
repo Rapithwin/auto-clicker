@@ -1,96 +1,23 @@
 from api.time_api import get_time
-from exception import InvalidInput
 from dateutil import parser
 import datetime
 import time
 
-while True:
-    try:
-        year: int = int(input("\nYear:"))
+from input import input_time
 
-    except Exception as e:
-        print(e)
-        continue
-    break
-
-while True:
-    try:
-        month: int = int(input("\nMonth:"))
-        if month <= 0 or month > 12:
-            raise InvalidInput
-    except Exception as e:
-        print(e)
-        continue
-
-    break
-
-while True:
-    try:
-        day: int = int(input("\nDay:"))
-        if day <= 0 or day > 31:
-            raise InvalidInput
-    except Exception as e:
-        print(e)
-        continue
-
-    break
-
-while True:
-    try:
-        hours: int = int(input("\nHours(00:00 - 23:59):"))
-        if hours < 0 or hours > 23:
-            raise InvalidInput
-    except Exception as e:
-        print(e)
-        continue
-
-    break
-
-while True:
-    try:
-        minutes: int = int(input("\nMinutes:"))
-        if minutes < 0 or minutes > 60:
-            raise InvalidInput
-    except Exception as e:
-        print(e)
-        continue
-
-    break
-
-while True:
-    try:
-        seconds: int = int(input("\nSeconds:"))
-        if seconds < 0 or seconds > 60:
-            raise InvalidInput
-    except Exception as e:
-        print(e)
-        continue
-
-    break
-
-while True:
-    try:
-        milliseconds: int = int(input("\nMilliseconds:"))
-        if milliseconds < 0 or milliseconds > 999:
-            raise InvalidInput
-    except Exception as e:
-        print(e)
-        continue
-
-    break
-
+input_list = input_time()
 
 date_time = datetime.datetime(
-    year=year,
-    month=month,
-    day=day,
-    hour=hours,
-    minute=minutes,
-    second=seconds,
-    microsecond=milliseconds * 1000,
+    year=input_list[0],
+    month=input_list[1],
+    day=input_list[2],
+    hour=input_list[3],
+    minute=input_list[4],
+    second=input_list[5],
+    microsecond=input_list[6] * 1000,
 )
 
-
+print(date_time)
 print(int(time.mktime(date_time.timetuple())))
 
 
