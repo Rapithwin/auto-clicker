@@ -7,7 +7,7 @@ from input import input_time
 
 input_list = input_time()
 
-date_time = datetime.datetime(
+set_date_time = datetime.datetime(
     year=input_list[0],
     month=input_list[1],
     day=input_list[2],
@@ -17,12 +17,28 @@ date_time = datetime.datetime(
     microsecond=input_list[6] * 1000,
 )
 
-print(date_time)
-print(int(time.mktime(date_time.timetuple())))
+set_date_time_unix = int(time.mktime(set_date_time.timetuple()))
+
+print(set_date_time)
+print(set_date_time_unix)
 
 
-datetime_api = get_time()["datetime"]
-datetime_unix: int = get_time()["unixtime"]
-datetime_mili = f"{parser.parse(datetime_api)}"[0:23]
+now_datetime_api = get_time()["datetime"]
+now_datetime_unix: int = get_time()["unixtime"]
+datetime_mili = f"{parser.parse(now_datetime_api)}"[0:23]
 
-print(datetime_unix)
+print(now_datetime_unix)
+
+def compare_time():
+    diff_time = set_date_time_unix - now_datetime_unix
+    while True:
+        if (diff_time <= 60000):
+            now_datetime_unix: int = get_time()["unixtime"]
+            print(now_datetime_unix)
+            if (0 <= diff_time <= 1000):
+                print("Click")
+            # time.sleep(1)
+        else:
+            continue
+
+compare_time()
