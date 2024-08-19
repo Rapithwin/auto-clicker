@@ -40,6 +40,7 @@ def compare_time():
                 raise NegativeNumberException
         except NegativeNumberException:
             print("Enter a valid date in the future")
+            break
             
         
         print(diff_time)
@@ -50,6 +51,7 @@ def compare_time():
             # print(now_datetime_unix2)
             if diff_time == 0:
                 print("Click")
+                click()
                 break
 
         else:
@@ -57,6 +59,7 @@ def compare_time():
 
 
 def click():
-    pass
+    button_location = pyautogui.locateOnScreen("assets/nine.png")
+    pyautogui.click(button_location)
 
 compare_time()
