@@ -1,5 +1,5 @@
 
-from exception import InvalidInput
+from exception import InvalidInputException
 
 
 def input_time() -> list:
@@ -16,7 +16,7 @@ def input_time() -> list:
         try:
             month: int = int(input("\nMonth:"))
             if month <= 0 or month > 12:
-                raise InvalidInput
+                raise InvalidInputException
         except Exception as e:
             print(e)
             continue
@@ -27,7 +27,7 @@ def input_time() -> list:
         try:
             day: int = int(input("\nDay:"))
             if day <= 0 or day > 31:
-                raise InvalidInput
+                raise InvalidInputException
         except Exception as e:
             print(e)
             continue
@@ -38,7 +38,7 @@ def input_time() -> list:
         try:
             hours: int = int(input("\nHour(00 - 23):"))
             if hours < 0 or hours > 23:
-                raise InvalidInput
+                raise InvalidInputException
         except Exception as e:
             print(e)
             continue
@@ -49,7 +49,7 @@ def input_time() -> list:
         try:
             minutes: int = int(input("\nMinute:"))
             if minutes < 0 or minutes > 60:
-                raise InvalidInput
+                raise InvalidInputException
         except Exception as e:
             print(e)
             continue
@@ -60,7 +60,7 @@ def input_time() -> list:
         try:
             seconds: int = int(input("\nSecond:"))
             if seconds < 0 or seconds > 60:
-                raise InvalidInput
+                raise InvalidInputException
         except Exception as e:
             print(e)
             continue
@@ -71,7 +71,7 @@ def input_time() -> list:
         try:
             milliseconds: int = int(input("\nMillisecond:"))
             if milliseconds < 0 or milliseconds > 999:
-                raise InvalidInput
+                raise InvalidInputException
         except Exception as e:
             print(e)
             continue

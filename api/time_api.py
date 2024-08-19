@@ -19,11 +19,11 @@ def get_time_worldtime() -> list:
 
 def get_time_keybit() -> list:
     try:
-        response = requests.get("https://api.keybit.ir/time", timeout=1)
+        response = requests.get("https://api.keybit.ir/time")
 
-        print("OK")
+        #print("OK")
         return response.json(), True
-    except requests.exceptions.RequestException or requests.exceptions.Timeout as e:
+    except requests.exceptions.RequestException or requests.exceptions.Timeout or requests.exceptions.ConnectTimeout as e:
         # print(response.status_code)
         print(e)
         return response.status_code, False

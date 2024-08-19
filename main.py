@@ -1,6 +1,7 @@
-from api.time_api import get_time_keybit, get_time_worldtime
-from dateutil import parser
+from api.time_api import get_time_keybit
+from exception import NegativeNumberException
 import datetime
+import pyautogui
 import time
 
 from input import input_time
@@ -33,18 +34,29 @@ print(now_datetime_unix)
 def compare_time():
     
     while True:
-        diff_time = set_date_time_unix - get_time_keybit()[0]["unix"]["en"]
+        try:
+            diff_time = set_date_time_unix - get_time_keybit()[0]["unix"]["en"]
+            if diff_time < 0:
+                raise NegativeNumberException
+        except NegativeNumberException:
+            print("Enter a valid date in the future")
+            
+        
         print(diff_time)
-        if diff_time <= 30:
+        if diff_time <= 10:
+            
             print("here")
-            now_datetime_unix2 = get_time_keybit()[0]["unix"]["en"]
-            print(now_datetime_unix2)
-            if 0 <= diff_time <= 1:
+            # now_datetime_unix2 = get_time_keybit()[0]["unix"]["en"]
+            # print(now_datetime_unix2)
+            if diff_time == 0:
                 print("Click")
                 break
 
         else:
-            time.sleep(diff_time - 30)
+            time.sleep(diff_time - 10)
 
+
+def click():
+    pass
 
 compare_time()
