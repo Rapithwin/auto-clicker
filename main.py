@@ -47,10 +47,7 @@ def compare_time():
         
         print(diff_time)
         if diff_time <= 10:
-            
-            print("here")
             if diff_time == 0:
-                print("Click")
                 click()
                 break
 
@@ -59,7 +56,7 @@ def compare_time():
 
 
 def click():
-    button_location = pyautogui.locateOnScreen("assets/nine.png")
+    button_location = pyautogui.locateOnScreen("assets/button.png")
     pyautogui.click(button_location)
 
 def main():
