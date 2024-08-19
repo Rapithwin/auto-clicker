@@ -47,8 +47,6 @@ def compare_time():
         if diff_time <= 10:
             
             print("here")
-            # now_datetime_unix2 = get_time_keybit()[0]["unix"]["en"]
-            # print(now_datetime_unix2)
             if diff_time == 0:
                 print("Click")
                 click()
