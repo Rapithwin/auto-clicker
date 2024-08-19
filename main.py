@@ -6,6 +6,8 @@ import time
 
 from input import input_time
 
+
+
 input_list = input_time()
 
 set_date_time = datetime.datetime(
@@ -60,4 +62,8 @@ def click():
     button_location = pyautogui.locateOnScreen("assets/nine.png")
     pyautogui.click(button_location)
 
-compare_time()
+def main():
+    compare_time()
+
+if __name__ == "__main__":
+    main()
