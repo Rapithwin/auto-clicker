@@ -34,7 +34,10 @@ print(now_datetime_unix)
 
 
 def compare_time():
-    
+    """
+    Compares the time set by user and the current time from API.
+    if they are equal, it will press f12
+    """
     while True:
         try:
             diff_time = set_date_time_unix - get_time_keybit()[0]["unix"]["en"]
@@ -56,6 +59,9 @@ def compare_time():
 
 
 def click():
+    """
+    Pressing f12 using pyautogui
+    """
     # button_location = pyautogui.locateOnScreen("assets/button.png")
     # pyautogui.click(button_location)
     pyautogui.press("f12")
