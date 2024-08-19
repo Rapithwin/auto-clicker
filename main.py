@@ -22,39 +22,29 @@ set_date_time_unix = int(time.mktime(set_date_time.timetuple()))
 print(set_date_time)
 print(set_date_time_unix)
 
-# now_datetime_unix = 0
-# while True:
-#     if get_time_keybit()[1]:
-#         now_datetime_unix: int = get_time_keybit()[0]["unix"]["en"]
-#         break
-
-#     if get_time_worldtime()[1]:
-#         now_datetime_unix: int = get_time_worldtime()[0]["unixtime"]
-#         break
 
 time_api = get_time_keybit()
 now_datetime_unix = time_api[0]["unix"]["en"]
 
 
-# now_datetime_api = time_api["datetime"]
-# now_datetime_unix: int = time_api["unixtime"]
-# datetime_mili = f"{parser.parse(now_datetime_api)}"[0:23]
-
 print(now_datetime_unix)
 
 
 def compare_time():
-    diff_time = set_date_time_unix - now_datetime_unix
+    
     while True:
-        if diff_time <= 60:
+        diff_time = set_date_time_unix - get_time_keybit()[0]["unix"]["en"]
+        print(diff_time)
+        if diff_time <= 30:
+            print("here")
             now_datetime_unix2 = get_time_keybit()[0]["unix"]["en"]
             print(now_datetime_unix2)
-            if 0 <= diff_time <= 10:
+            if 0 <= diff_time <= 1:
                 print("Click")
                 break
 
         else:
-            time.sleep(diff_time - 60)
+            time.sleep(diff_time - 30)
 
 
 compare_time()

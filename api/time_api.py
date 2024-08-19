@@ -1,5 +1,5 @@
 import requests
-from exception import RequestFailException
+
 
 
 def get_time_worldtime() -> list:
