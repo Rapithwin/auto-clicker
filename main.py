@@ -56,8 +56,9 @@ def compare_time():
 
 
 def click():
-    button_location = pyautogui.locateOnScreen("assets/button.png")
-    pyautogui.click(button_location)
+    # button_location = pyautogui.locateOnScreen("assets/button.png")
+    # pyautogui.click(button_location)
+    pyautogui.press("f12")
 
 def main():
     compare_time()
