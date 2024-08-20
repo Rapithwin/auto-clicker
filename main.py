@@ -59,7 +59,7 @@ def click():
     """
     
     try:
-        pyautogui.press("a")
+        pyautogui.press("f12")
     except Exception as e:
         print(e)
         button_location = pyautogui.locateOnScreen("assets/button.png")
