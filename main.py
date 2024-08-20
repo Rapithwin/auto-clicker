@@ -4,8 +4,6 @@ import datetime
 import pyautogui
 import time
 from input import input_time
-from api.time_api import get_time_worldtime
-from dateutil import parser
 
 
 input_list = input_time()
@@ -17,7 +15,7 @@ set_date_time = datetime.datetime(
     hour=input_list[3],
     minute=input_list[4],
     second=input_list[5],
-    microsecond=input_list[6] * 1000,
+   # microsecond=input_list[6] * 1000,
 )
 
 set_date_time_unix = int(time.mktime(set_date_time.timetuple()))
@@ -32,8 +30,6 @@ now_datetime_unix = time_api[0]["unix"]["en"]
 
 
 print(now_datetime_unix)
-
-
 
 
 def compare_time():
@@ -54,17 +50,17 @@ def compare_time():
             
         
         print(diff_time)
-        if diff_time <= 3:
-            counter +=1
-            if diff_time == 0:
-                click()
-                break
+        counter +=1
+        if diff_time == 1:
+            time.sleep((1000 + input_list[6]) / 1000)
+            click()
+            break
 
         else:
-            time.sleep(diff_time - 3)
+            time.sleep(diff_time - 1)
 
 
-    print(counter)
+    print(f"counter: {counter}")
 
 def click():
     """
