@@ -25,13 +25,16 @@ set_date_time_unix = int(time.mktime(set_date_time.timetuple()))
 print(set_date_time)
 print(set_date_time_unix)
 
+# Current time, parsed
+date_time = get_time_worldtime()[0]["datetime"][0:23]
+parsed_time = parser.parse(date_time)
+now_unixtime_ms = round(time.mktime(parsed_time.timetuple()) * 1000 + int(str(parsed_time)[20:23]))
+
+# time_api = get_time_keybit()
+# now_datetime_unix = time_api[0]["unix"]["en"]
 
 
-time_api = get_time_keybit()
-now_datetime_unix = time_api[0]["unix"]["en"]
-
-
-print(now_datetime_unix)
+# print(now_datetime_unix)
 
 
 
@@ -65,6 +68,10 @@ def compare_time():
 
 
     print(counter)
+
+
+
+
 
 def click():
     """
