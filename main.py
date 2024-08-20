@@ -1,4 +1,5 @@
 from api.time_api import get_time_keybit
+from concat import concat
 from exception import NegativeNumberException
 import datetime
 import pyautogui
@@ -19,6 +20,7 @@ set_date_time = datetime.datetime(
 )
 
 set_date_time_unix = int(time.mktime(set_date_time.timetuple()))
+print(concat(set_date_time_unix, input_list[6]))
 
 print(set_date_time)
 print(set_date_time_unix)
@@ -73,6 +75,7 @@ def click():
         print(e)
         button_location = pyautogui.locateOnScreen("assets/button.png")
         pyautogui.click(button_location)
+
 
 
 def main():

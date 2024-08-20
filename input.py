@@ -68,7 +68,7 @@ def input_time() -> list:
 
     while True:
         try:
-            milliseconds: int = int(input("\nMillisecond:"))
+            milliseconds: int = int(input("\nMillisecond(put 0 before 1 and 2 digit ints like: 001 or 023):"))
             if milliseconds < 0 or milliseconds > 999:
                 raise InvalidInputException
         except Exception as e:
