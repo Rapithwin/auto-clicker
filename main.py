@@ -62,9 +62,13 @@ def click():
     """
     Pressing f12 using pyautogui
     """
-    # button_location = pyautogui.locateOnScreen("assets/button.png")
-    # pyautogui.click(button_location)
-    pyautogui.press("f12")
+    
+    try:
+        pyautogui.press("f12")
+    except Exception as e:
+        print(e)
+        button_location = pyautogui.locateOnScreen("assets/button.png")
+        pyautogui.click(button_location)
 
 def main():
     compare_time()
