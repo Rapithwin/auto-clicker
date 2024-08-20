@@ -1,4 +1,3 @@
-
 from exception import InvalidInputException
 
 

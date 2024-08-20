@@ -3,9 +3,9 @@ from exception import NegativeNumberException
 import datetime
 import pyautogui
 import time
-
 from input import input_time
-
+from api.time_api import get_time_worldtime
+from dateutil import parser
 
 
 input_list = input_time()
@@ -26,6 +26,7 @@ print(set_date_time)
 print(set_date_time_unix)
 
 
+
 time_api = get_time_keybit()
 now_datetime_unix = time_api[0]["unix"]["en"]
 
@@ -33,7 +34,10 @@ now_datetime_unix = time_api[0]["unix"]["en"]
 print(now_datetime_unix)
 
 
+
+
 def compare_time():
+    counter = 0
     """
     Compares the time set by user and the current time from API.
     if they are equal, it will press f12
@@ -41,6 +45,7 @@ def compare_time():
     while True:
         try:
             diff_time = set_date_time_unix - get_time_keybit()[0]["unix"]["en"]
+            # If the date entered is in the past, raise an exception
             if diff_time < 0:
                 raise NegativeNumberException
         except NegativeNumberException:
@@ -49,14 +54,17 @@ def compare_time():
             
         
         print(diff_time)
-        if diff_time <= 10:
+        if diff_time <= 3:
+            counter +=1
             if diff_time == 0:
                 click()
                 break
 
         else:
-            time.sleep(diff_time - 10)
+            time.sleep(diff_time - 3)
 
+
+    print(counter)
 
 def click():
     """
@@ -70,8 +78,10 @@ def click():
         button_location = pyautogui.locateOnScreen("assets/button.png")
         pyautogui.click(button_location)
 
+
 def main():
     compare_time()
+
 
 if __name__ == "__main__":
     main()

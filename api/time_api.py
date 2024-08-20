@@ -1,7 +1,6 @@
 import requests
 
 
-
 def get_time_worldtime() -> list:
 
     try:
