@@ -1,10 +1,10 @@
 from api.time_api import get_time_keybit
-from concat import concat
+from funcitons.concat import concat
 from exception import NegativeNumberException
 import datetime
 import pyautogui
 import time
-from input import input_time
+from funcitons.input import input_time
 
 
 input_list = input_time()
@@ -20,18 +20,12 @@ set_date_time = datetime.datetime(
 )
 
 set_date_time_unix = int(time.mktime(set_date_time.timetuple()))
-print(concat(set_date_time_unix, input_list[6]))
+set_date_time_unix_ms = concat(set_date_time_unix, input_list[6])
 
 print(set_date_time)
 print(set_date_time_unix)
+print(set_date_time_unix_ms)
 
-
-
-time_api = get_time_keybit()
-now_datetime_unix = time_api[0]["unix"]["en"]
-
-
-print(now_datetime_unix)
 
 
 def compare_time():
