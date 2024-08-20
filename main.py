@@ -1,10 +1,10 @@
-from api.time_api import get_time_keybit
 from funcitons.concat import concat
 from exception import NegativeNumberException
 import datetime
 import pyautogui
 import time
 from funcitons.input import input_time
+from ntp.ntp import current_time_ntp
 
 
 input_list = input_time()
@@ -23,20 +23,18 @@ set_date_time_unix = int(time.mktime(set_date_time.timetuple()))
 set_date_time_unix_ms = concat(set_date_time_unix, input_list[6])
 
 print(set_date_time)
-print(set_date_time_unix)
 print(set_date_time_unix_ms)
 
 
 
 def compare_time():
-    counter = 0
     """
     Compares the time set by user and the current time from API.
     if they are equal, it will press f12
     """
     while True:
         try:
-            diff_time = set_date_time_unix - get_time_keybit()[0]["unix"]["en"]
+            diff_time = set_date_time_unix_ms - current_time_ntp()
             # If the date entered is in the past, raise an exception
             if diff_time < 0:
                 raise NegativeNumberException
@@ -45,18 +43,15 @@ def compare_time():
             break
             
         
-        print(diff_time)
-        counter +=1
-        if diff_time == 1:
-            time.sleep((1000 + input_list[6]) / 1000)
+        print(diff_time / 1000)
+        if 0 < diff_time < 150:
+            
             click()
             break
 
         else:
-            time.sleep(diff_time - 1)
+            time.sleep((diff_time - 151) / 1000)
 
-
-    print(f"counter: {counter}")
 
 def click():
     """
@@ -64,12 +59,11 @@ def click():
     """
     
     try:
-        pyautogui.press("f12")
+        pyautogui.press("a")
     except Exception as e:
         print(e)
         button_location = pyautogui.locateOnScreen("assets/button.png")
         pyautogui.click(button_location)
-
 
 
 def main():

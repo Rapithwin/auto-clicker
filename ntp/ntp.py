@@ -9,7 +9,5 @@ def current_time_ntp():
         print("NTP exception")
 
     ms_since_epoch = int(response.tx_time * 1000)
-    print(ms_since_epoch)
-    print(response.delay)
 
     return ms_since_epoch
