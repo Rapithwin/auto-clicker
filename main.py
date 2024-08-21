@@ -16,7 +16,6 @@ set_date_time = datetime.datetime(
     hour=input_list[3],
     minute=input_list[4],
     second=input_list[5],
-   # microsecond=input_list[6] * 1000,
 )
 
 set_date_time_unix = int(time.mktime(set_date_time.timetuple()))
