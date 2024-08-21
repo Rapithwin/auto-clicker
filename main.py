@@ -32,29 +32,33 @@ def compare_time():
     Compares the time set by user and the current time from API.
     if they are equal, it will press f12
     """
-    counter = 0
-    while True:
-        # try:
-        #     diff_time = set_date_time_unix_ms - current_time_ntp()
-        #     # If the date entered is in the past, raise an exception
-        #     if diff_time < 0:
-        #         raise NegativeNumberException
-        # except NegativeNumberException:
-        #     print("Enter a valid date in the future")
-        #     break
 
-        diff_time = set_date_time_unix_ms - current_time_ntp()
+    diff_time = set_date_time_unix_ms - current_time_ntp()
+    time.sleep((diff_time) / 1000)
+    click()
+
+    # while True:
+    #     # try:
+    #     #     diff_time = set_date_time_unix_ms - current_time_ntp()
+    #     #     # If the date entered is in the past, raise an exception
+    #     #     if diff_time < 0:
+    #     #         raise NegativeNumberException
+    #     # except NegativeNumberException:
+    #     #     print("Enter a valid date in the future")
+    #     #     break
+
+    #     diff_time = set_date_time_unix_ms - current_time_ntp()
             
         
         
-        if diff_time <= 0:
-            click()
-            break
+    #     if diff_time <= 0:
+    #         click()
+    #         break
 
-        else:
-            time.sleep((diff_time) / 1000)
+    #     else:
+    #         time.sleep((diff_time) / 1000)
 
-    print(counter)
+ 
 
 
 def click():
