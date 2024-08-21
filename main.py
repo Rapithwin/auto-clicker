@@ -22,10 +22,6 @@ set_date_time = datetime.datetime(
 set_date_time_unix = int(time.mktime(set_date_time.timetuple()))
 set_date_time_unix_ms = concat(set_date_time_unix, input_list[6])
 
-print(set_date_time)
-print(set_date_time_unix_ms)
-
-
 
 def compare_time():
     """
@@ -34,31 +30,8 @@ def compare_time():
     """
 
     diff_time = set_date_time_unix_ms - current_time_ntp()
-    time.sleep((diff_time) / 1000)
+    time.sleep((diff_time + 200) / 1000)
     click()
-
-    # while True:
-    #     # try:
-    #     #     diff_time = set_date_time_unix_ms - current_time_ntp()
-    #     #     # If the date entered is in the past, raise an exception
-    #     #     if diff_time < 0:
-    #     #         raise NegativeNumberException
-    #     # except NegativeNumberException:
-    #     #     print("Enter a valid date in the future")
-    #     #     break
-
-    #     diff_time = set_date_time_unix_ms - current_time_ntp()
-            
-        
-        
-    #     if diff_time <= 0:
-    #         click()
-    #         break
-
-    #     else:
-    #         time.sleep((diff_time) / 1000)
-
- 
 
 
 def click():
