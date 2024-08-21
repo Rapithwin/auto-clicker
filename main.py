@@ -46,14 +46,13 @@ def compare_time():
         diff_time = set_date_time_unix_ms - current_time_ntp()
             
         
-        if diff_time < 500:
-            counter += 1
-            if diff_time <= 0:
-                click()
-                break
+        
+        if diff_time <= 0:
+            click()
+            break
 
         else:
-            time.sleep((diff_time - 500) / 1000)
+            time.sleep((diff_time) / 1000)
 
     print(counter)
 
