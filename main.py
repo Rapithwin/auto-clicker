@@ -43,14 +43,13 @@ def compare_time():
             break
             
         
-        print(diff_time / 1000)
-        if 0 < diff_time < 150:
-            
+        
+        if 0 <= diff_time < 1000:
             click()
             break
 
         else:
-            time.sleep((diff_time - 151) / 1000)
+            time.sleep((diff_time - 1000) / 1000)
 
 
 def click():
