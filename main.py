@@ -1,9 +1,8 @@
 from funcitons.concat import concat
-from read_file import read_date_time
+from funcitons.read_file import read_date_time
 import pyautogui
 import time
 from ntp.ntp import current_time_ntp
-
 
 
 set_date_time = read_date_time()[0]
