@@ -1,5 +1,4 @@
 from funcitons.concat import concat
-from exception import NegativeNumberException
 import datetime
 import pyautogui
 import time
