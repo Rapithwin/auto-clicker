@@ -1,24 +1,15 @@
 from funcitons.concat import concat
-import datetime
+from read_file import read_date_time
 import pyautogui
 import time
-from funcitons.input import input_time
 from ntp.ntp import current_time_ntp
 
 
-input_list = input_time()
 
-set_date_time = datetime.datetime(
-    year=input_list[0],
-    month=input_list[1],
-    day=input_list[2],
-    hour=input_list[3],
-    minute=input_list[4],
-    second=input_list[5],
-)
-
+set_date_time = read_date_time()[0]
+ms = read_date_time()[1]
 set_date_time_unix = int(time.mktime(set_date_time.timetuple()))
-set_date_time_unix_ms = concat(set_date_time_unix, input_list[6])
+set_date_time_unix_ms = concat(set_date_time_unix, ms)
 
 
 def compare_time():
@@ -26,9 +17,12 @@ def compare_time():
     Compares the time set by user and the current time from API.
     if they are equal, it will press f12
     """
-
+    print("Running...\n")
     diff_time = set_date_time_unix_ms - current_time_ntp()
-    time.sleep((diff_time + 200) / 1000)
+    try:
+        time.sleep((diff_time + 200) / 1000)
+    except:
+        print("Enter a valid date and time in future")
     click()
 
 

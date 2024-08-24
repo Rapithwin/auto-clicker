@@ -1,10 +1,6 @@
 # Auto cliker bot
-Run main.exe and schedule the bot to click on the button
+Edit conf.txt and run main.exe to click the button
+## Format
+yyyy/mm/dd/ HH:MM:SS:ms
 ## Example
-Year: 2024  
-Month: 8  
-Day: 24  
-Hour: 15  
-Minute: 30  
-Second: 0  
-Millisecond: 200
+2024/8/21 12:35:02:150
