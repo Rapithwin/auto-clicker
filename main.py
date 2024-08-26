@@ -19,7 +19,7 @@ def compare_time():
     print("Running...\n")
     diff_time = set_date_time_unix_ms - current_time_ntp()
     try:
-        time.sleep((diff_time + 200) / 1000)
+        time.sleep((diff_time + 180) / 1000)
     except:
         print("Enter a valid date and time in future")
     click()
