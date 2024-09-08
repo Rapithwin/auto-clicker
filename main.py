@@ -21,8 +21,9 @@ def compare_time():
     try:
         time.sleep((diff_time + 180) / 1000)
     except:
-        print("Enter a valid date and time in future")
+        print("Error: Enter a valid date and time in future")
     click()
+    input() # So the terminal doesn't close automaticly
 
 
 def click():
