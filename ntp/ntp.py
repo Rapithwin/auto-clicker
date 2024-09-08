@@ -2,6 +2,9 @@ import ntplib
 
 
 def current_time_ntp():
+    """
+    Get the current IR time from time server
+    """
     c = ntplib.NTPClient()
     try:
         response = c.request("ir.pool.ntp.org", version=3)
