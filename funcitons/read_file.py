@@ -2,6 +2,9 @@ import datetime
 
 
 def read_date_time() -> list:
+    """
+    Read datetime from conf.txt
+    """
     with open("conf.txt", "r") as f:
         file = f.read()
         file_len = len(file)
