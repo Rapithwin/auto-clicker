@@ -13,8 +13,8 @@ set_date_time_unix_ms = concat(set_date_time_unix, ms)
 
 def compare_time():
     """
-    Compares the time set by user and the current time from API.
-    if they are equal, it will press f12
+    Compares the time set by user and the current time from time server.
+    If they are equal, it will call the click() function.
     """
     print("Running...\n")
     diff_time = set_date_time_unix_ms - current_time_ntp()
@@ -27,9 +27,8 @@ def compare_time():
 
 def click():
     """
-    Pressing f12 using pyautogui
-    """
-    
+    Presses f12 or locates the button on the screen and clicks on it.
+    """    
     try:
         pyautogui.press("f12")
     except Exception as e:
