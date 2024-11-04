@@ -7,8 +7,9 @@ def current_time_ntp():
     """
     c = ntplib.NTPClient()
     try:
-        response = c.request("ir.pool.ntp.org", version=3)
+        response = c.request("0.pool.ntp.org", version=3)
     except Exception:
+
         print("Server didn't respond, trying asia...")
         try:
             response = c.request("2.asia.pool.ntp.org", version=3)
