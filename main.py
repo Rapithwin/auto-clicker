@@ -19,17 +19,17 @@ def compare_time():
     print("Running...\n")
     diff_time = set_date_time_unix_ms - current_time_ntp()
     try:
-        time.sleep((diff_time + 180) / 1000)
+        time.sleep((diff_time) / 1000)
     except:
         print("Error: Enter a valid date and time in future")
     click()
-    input() # So the terminal doesn't close automaticly
+    input()  # So the terminal doesn't close automaticly
 
 
 def click():
     """
     Presses f12 or locates the button on the screen and clicks on it.
-    """    
+    """
     try:
         pyautogui.press("f12")
     except Exception as e:

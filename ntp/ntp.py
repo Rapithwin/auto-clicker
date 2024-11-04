@@ -9,8 +9,11 @@ def current_time_ntp():
     try:
         response = c.request("ir.pool.ntp.org", version=3)
     except Exception:
-        print("ir server didn't respond, trying asia...")
-        response = c.request("2.asia.pool.ntp.org", version=3)
+        print("Server didn't respond, trying asia...")
+        try:
+            response = c.request("2.asia.pool.ntp.org", version=3)
+        except Exception as e:
+            print(f"Server didn't respond: {e}")
 
     ms_since_epoch = int(response.tx_time * 1000)
 
