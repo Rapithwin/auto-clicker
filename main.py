@@ -36,8 +36,6 @@ def click():
         print(e)
         button_location = pyautogui.locateOnScreen("assets/button.png")
         pyautogui.click(button_location)
-    end_time = current_time_ntp()
-    print(end_time)
     input("Press enter to continue...")
 
 
