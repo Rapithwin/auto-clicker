@@ -2,7 +2,6 @@ from funcitons.concat import concat
 from funcitons.read_file import read_date_time
 import pyautogui
 import time
-import threading
 from ntp.ntp import current_time_ntp
 
 
