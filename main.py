@@ -23,7 +23,9 @@ def compare_time():
     except:
         print("Error: Enter a valid date and time in future")
     click()
-    input()  # So the terminal doesn't close automaticly
+    input(
+        "\nPress enter to continue."
+    )  # Preventing terminal from closing automatically
 
 
 def click():
